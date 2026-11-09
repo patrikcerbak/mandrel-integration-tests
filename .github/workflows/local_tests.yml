@@ -181,6 +181,7 @@ jobs:
           if [[ ! -e "${JAVA_HOME}/bin/native-image" ]]; then echo "Cannot find native-image tool. Quitting..." && exit 1; fi
           native-image --version
           mvn --version
+          perf list
           pushd ts
           mkdir -p ~/.m2/
           cp .github/mvn-settings.xml ~/.m2/settings.xml
