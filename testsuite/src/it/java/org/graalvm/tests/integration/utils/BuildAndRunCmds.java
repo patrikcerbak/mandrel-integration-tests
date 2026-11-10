@@ -167,8 +167,8 @@ public enum BuildAndRunCmds {
                     // -XX:+UseG1GC
                     // Profile capture:
                     // No "--delay", "2000",  for perf o capture startup too...
-                    { "perf", "stat", "java", "-Xlog:gc", "-XX:+UseSerialGC", "-Xmx" + MX_HEAP_MB + "m", "-jar", "target/quarkus-app/quarkus-run.jar" },
-                    { "perf", "stat", "./target/quarkus-runner", "-XX:+PrintGC" } }
+                    { "perf", "stat", "-e", "cpu_cycles,inst_retired,stall_frontend,stall_backend,l1d_cache,l1d_cache_refill,br_retired,br_mis_pred_retired", "java", "-Xlog:gc", "-XX:+UseSerialGC", "-Xmx" + MX_HEAP_MB + "m", "-jar", "target/quarkus-app/quarkus-run.jar" },
+                    { "perf", "stat", "-e", "cpu_cycles,inst_retired,stall_frontend,stall_backend,l1d_cache,l1d_cache_refill,br_retired,br_mis_pred_retired", "./target/quarkus-runner", "-XX:+PrintGC" } }
     ),
     QUARKUS_FULL_MICROPROFILE_GC(
             new String[][] {
